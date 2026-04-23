@@ -101,6 +101,26 @@ h2 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-we
 .cert-status { display: inline-block; margin-top: 8px; font-family: var(--mono); font-size: 10px; padding: 3px 9px; border-radius: 100px; }
 .cs-done { background: rgba(0,229,160,0.1); color: var(--accent); border: 1px solid rgba(0,229,160,0.2); }
 .cs-wip { background: rgba(245,166,35,0.1); color: var(--amber); border: 1px solid rgba(245,166,35,0.2); }
+.talk-card { background: var(--surface); border: 1px solid rgba(0,229,160,0.25); border-radius: 12px; padding: 2rem; position: relative; overflow: hidden; }
+.talk-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), transparent); }
+.talk-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.talk-accepted { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); border-radius: 100px; padding: 5px 12px; font-family: var(--mono); font-size: 11px; color: var(--accent); }
+.talk-accepted-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
+.talk-venue-badge { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.talk-title { font-family: var(--display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3; color: var(--text); }
+.talk-meta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.talk-meta-item { font-family: var(--mono); font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.talk-meta-item span { color: var(--accent); }
+.talk-abstract { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+.talk-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.talk-chip { font-family: var(--mono); font-size: 10px; padding: 3px 9px; border-radius: 4px; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.blog-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1rem; transition: border-color 0.2s; }
+.blog-card:hover { border-color: var(--border2); }
+.blog-card-label { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.blog-card-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+.blog-card-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; font-weight: 300; }
+.blog-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.blog-card-tag { font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 4px; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
 .blog-item { border-bottom: 1px solid var(--border); padding: 1.75rem 0; display: flex; gap: 2rem; align-items: flex-start; text-decoration: none; }
 .blog-item:first-child { padding-top: 0; }
 .blog-num { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 28px; padding-top: 3px; }
@@ -146,6 +166,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
     <li><a href="#skills">skills</a></li>
     <li><a href="#experience">experience</a></li>
     <li><a href="#certs">certs</a></li>
+    <li><a href="#speaking">speaking</a></li>
     <li><a href="#blog">writing</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
@@ -299,6 +320,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
             <li>Automated repeatable triage tasks using <strong>Python and Bash</strong>, improving scalability and reducing manual overhead in vulnerability management workflows.</li>
             <li>Delivered <strong>executive-level security briefings</strong>, translating complex technical risk findings into business-aligned language for senior stakeholders.</li>
             <li>Mentored junior analysts on vulnerability assessment methodology and penetration testing practices.</li>
+            <li>Integrated SAST and DAST tooling including Burp Suite and Semgrep into CI/CD pipelines, enabling automated security checks earlier in the development lifecycle and reducing time to detection.</li>
           </ul>
           <div class="exp-highlight">Reduced high-risk exposure by 30% through systematic, prioritised remediation</div>
         </div>
@@ -398,52 +420,91 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
   </div>
 </section>
 
+<section id="speaking">
+  <div class="wrap">
+    <div class="section-label">05. speaking</div>
+    <h2>Conference talks</h2>
+    <p class="section-sub">Translating AI security complexity into practical language for the practitioners who need it most.</p>
+    <div class="reveal">
+      <div class="talk-card">
+        <div class="talk-header">
+          <div>
+            <div class="talk-accepted"><span class="talk-accepted-dot"></span>Talk Accepted</div>
+          </div>
+          <div class="talk-venue-badge">The Diana Initiative &nbsp;·&nbsp; dianainitiative.org</div>
+        </div>
+        <div class="talk-title">Before You Hack It, Understand It: AI Security Fundamentals</div>
+        <div class="talk-meta-row">
+          <div class="talk-meta-item"><span>📅</span> 30 May 2026</div>
+          <div class="talk-meta-item"><span>🌐</span> Online</div>
+          <div class="talk-meta-item"><span>🕐</span> Pacific Daylight Time (UTC-07:00)</div>
+        </div>
+        <div class="talk-abstract">As security practitioners, we are being handed AI targets to audit, yet many of us still treat the model itself as a black box. We are expected to pen-test and defend these systems, but how do you find an injection point if you do not know what a token is? How do you assess supply chain risk without understanding model artifacts?<br><br>This talk covers foundational neural network and LLM architecture through a security lens, not a data science one. Starting with vectors and embeddings, we build up through tokenization, attention mechanisms, and system prompts — connecting each concept directly to its attack surface. We then show where real attacks live in the stack: prompt injection, data poisoning, RAG pipeline corruption, supply chain compromise, and inference abuse, each mapped to the exact architectural layer it targets.<br><br>The goal is to give practitioners the mental model to approach AI systems like any other target — with a real understanding of what is underneath. Ultimately, you cannot hack, defend, or audit what you do not understand.</div>
+        <div class="talk-chips">
+          <span class="talk-chip">OWASP LLM Top 10</span>
+          <span class="talk-chip">MITRE ATLAS</span>
+          <span class="talk-chip">Prompt Injection</span>
+          <span class="talk-chip">Data Poisoning</span>
+          <span class="talk-chip">AI Supply Chain</span>
+          <span class="talk-chip">RAG Security</span>
+          <span class="talk-chip">LLM Architecture</span>
+          <span class="talk-chip">Beginner Friendly</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="blog" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="wrap">
-    <div class="section-label">05. writing</div>
+    <div class="section-label">06. writing</div>
     <h2>Technical articles</h2>
     <p class="section-sub">Practical vulnerability research, tool evaluations, and AI security insights. Written for practitioners, not theorists.</p>
     <div class="reveal">
-      <a href="#" class="blog-item">
-        <span class="blog-num">01</span>
-        <div class="blog-content">
-          <div class="blog-title">What is AI pentesting? Why I'm preparing for the PAPA cert</div>
-          <div class="blog-meta">Coming soon &nbsp;·&nbsp; AI Security &nbsp;·&nbsp; TCM PAPA</div>
+      <div class="blog-card">
+        <div class="blog-card-label">Threat Modelling &nbsp;·&nbsp; Coming soon</div>
+        <div class="blog-card-title">Threat Modelling That Actually Gets Used: A Practitioner's Approach</div>
+        <div class="blog-card-desc">Threat modelling has a reputation for producing documents nobody reads. This post breaks down a practical STRIDE-based approach applied to real enterprise environments — how to run sessions that engineers engage with, how to connect findings to remediation workflows, and how threat modelling changes when AI systems are part of the architecture.</div>
+        <div class="blog-card-tags">
+          <span class="blog-card-tag">Threat Modelling</span>
+          <span class="blog-card-tag">STRIDE</span>
+          <span class="blog-card-tag">AppSec</span>
+          <span class="blog-card-tag">AI Systems</span>
         </div>
-        <span class="blog-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <span class="blog-num">02</span>
-        <div class="blog-content">
-          <div class="blog-title">OWASP Top 10 explained for developers, not just security people</div>
-          <div class="blog-meta">Coming soon &nbsp;·&nbsp; AppSec &nbsp;·&nbsp; OWASP</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-label">AI Security &nbsp;·&nbsp; Coming soon</div>
+        <div class="blog-card-title">What is AI Pentesting and Why I Chose the PAPA Certification</div>
+        <div class="blog-card-desc">AI pentesting is not just prompt injection. This post covers what the discipline actually involves, why traditional security skills transfer more than people think, and what the PAPA certification covers for practitioners who want to approach AI systems with the same rigour they bring to traditional targets.</div>
+        <div class="blog-card-tags">
+          <span class="blog-card-tag">AI Security</span>
+          <span class="blog-card-tag">PAPA</span>
+          <span class="blog-card-tag">TCM Security</span>
+          <span class="blog-card-tag">LLMs</span>
         </div>
-        <span class="blog-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <span class="blog-num">03</span>
-        <div class="blog-content">
-          <div class="blog-title">How I automated vulnerability triage with Python: lessons from enterprise security</div>
-          <div class="blog-meta">Coming soon &nbsp;·&nbsp; Automation &nbsp;·&nbsp; Python</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-label">AppSec &nbsp;·&nbsp; Coming soon</div>
+        <div class="blog-card-title">OWASP Top 10 Explained for Developers, Not Just Security People</div>
+        <div class="blog-card-desc">Security teams talk about OWASP constantly. Developers nod along and go back to shipping. This post translates each vulnerability into language developers actually care about — what it means for their code, what a real exploit looks like, and what a fix actually involves.</div>
+        <div class="blog-card-tags">
+          <span class="blog-card-tag">OWASP</span>
+          <span class="blog-card-tag">AppSec</span>
+          <span class="blog-card-tag">Web Security</span>
+          <span class="blog-card-tag">Developers</span>
         </div>
-        <span class="blog-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <span class="blog-num">04</span>
-        <div class="blog-content">
-          <div class="blog-title">Container security in practice: Trivy, Grype, and Syft compared</div>
-          <div class="blog-meta">Coming soon &nbsp;·&nbsp; Container Security &nbsp;·&nbsp; DevSecOps</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-label">Automation &nbsp;·&nbsp; Coming soon</div>
+        <div class="blog-card-title">How I Automated Vulnerability Triage with Python: Lessons from Enterprise Security</div>
+        <div class="blog-card-desc">Vulnerability queues do not manage themselves. This post walks through building a Python-based triage workflow that parses CVSS scores, maps findings to NIST controls, and produces prioritised remediation lists — based on real automation work done at Gunnison Consulting.</div>
+        <div class="blog-card-tags">
+          <span class="blog-card-tag">Python</span>
+          <span class="blog-card-tag">Automation</span>
+          <span class="blog-card-tag">Vulnerability Management</span>
+          <span class="blog-card-tag">CVSS</span>
         </div>
-        <span class="blog-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item" style="border-bottom:none;">
-        <span class="blog-num">05</span>
-        <div class="blog-content">
-          <div class="blog-title">AI is changing the attack surface: what security teams need to know now</div>
-          <div class="blog-meta">Coming soon &nbsp;·&nbsp; AI Security &nbsp;·&nbsp; Threat Landscape</div>
-        </div>
-        <span class="blog-arrow">→</span>
-      </a>
+      </div>
     </div>
     <div style="margin-top:2rem;">
       <a href="https://hashnode.com/@vinayavasu" class="btn btn-outline" target="_blank">Read all articles on Hashnode →</a>
@@ -453,7 +514,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
 <section style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="wrap">
-    <div class="section-label">06. community</div>
+    <div class="section-label">07. community</div>
     <h2>Beyond the job</h2>
     <p class="section-sub">Security is a community. I give back, mentor others, and help the field grow.</p>
     <div class="community-grid reveal">
@@ -464,8 +525,8 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
       </div>
       <div class="community-card">
         <span class="community-icon">🎤</span>
-        <div class="community-title">Conference Speaker (2026)</div>
-        <div class="community-desc">Preparing original technical content on AI security and vulnerability research for the 2026 conference circuit.</div>
+        <div class="community-title">Diana Initiative 2026</div>
+        <div class="community-desc">Accepted speaker. Presenting "Before You Hack It, Understand It: AI Security Fundamentals" on 30 May 2026.</div>
       </div>
       <div class="community-card">
         <span class="community-icon">📖</span>
@@ -484,7 +545,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 <section id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <div class="section-label" style="justify-content:center;display:flex;">07. contact</div>
+      <div class="section-label" style="justify-content:center;display:flex;">08. contact</div>
       <h2>Let's work together</h2>
       <p>Open to full-time security roles, consulting engagements, and speaking opportunities. If you're building something secure or need someone to break it first, let's talk.</p>
       <a href="mailto:vinayasri2014@gmail.com" class="btn btn-primary">vinayasri2014@gmail.com ↗</a>
